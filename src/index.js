@@ -27,11 +27,15 @@ const handleClick = (ramen) => {
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  const submit_btn = document.getElementById("submit-button");
-  submit_btn.addEventListener("click", addSubmitListener);
+  const submitButton = document.getElementById("submit-button");
+  submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    addSubmitListener();
+  });
 });
 
-export const addSubmitListener = () => {
+// export const addSubmitListener = () => {
+const addSubmitListener = () => {
   let ramenDisplayNav = document.querySelector("#ramen-menu");
 
   const ramenMenuDivBefore = document.querySelectorAll("#ramen-menu img");
@@ -51,14 +55,17 @@ export const addSubmitListener = () => {
     comment: ramenFormComment.value,
   };
 
+  console.log(ramen);
+
   addMenuItem(ramen, ramenDisplayNav);
 };
 
 //
 
-export const displayRamens = () => {
+// export const displayRamens = () => {
+const displayRamens = () => {
   // get all images from the server
-  fetchData().then((images) => {
+  fetchRamenData().then((images) => {
     // find our #ramen-menu element in html
     let ramenDisplayNav = document.querySelector("#ramen-menu");
 
@@ -73,10 +80,10 @@ function addMenuItem(ramen, menuElement) {
   // add an <img> to the document
   let ramenImg = document.createElement("img");
 
-  // update the "src" prop on an <img> with the filepath from db.json ramen
+  // update the "src" property on an <img> with the filepath from db.json ramen
   ramenImg.src = ramen.image;
 
-  // update the "alt" prop on an <img> tag with the ramen name from db.json
+  // update the "alt" property on an <img> tag with the ramen name from db.json
   ramenImg.alt = ramen.name;
 
   // add the class "image-nav" to the list of classes on the <img> tag
@@ -91,7 +98,7 @@ function addMenuItem(ramen, menuElement) {
   menuElement.append(ramenImg);
 }
 
-function fetchData() {
+function fetchRamenData() {
   // return fetch("http://localhost:3000/ramens").then(async response => {
   //   const resp = await response.json();
   //   return resp.ramens;
@@ -107,11 +114,11 @@ function fetchData() {
 const main = () => {
   // Invoke displayRamens here
   // Invoke addSubmitListener here
-  // displayRamens();
-  // addSubmitListener();
+  displayRamens();
+  addSubmitListener();
 };
 
 main();
 
 // Export functions for testing
-// export { displayRamens, addSubmitListener, handleClick, main }
+// export { displayRamens, addSubmitListener, handleClick, main };

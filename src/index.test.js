@@ -248,55 +248,55 @@ describe("handleSubmit", () => {
     );
   });
 
-  // it("should attach a click listener to the new element to display its details", () => {
-  //   const newRamen = {
-  //     name: "Mat",
-  //     restaurant: "Test",
-  //     image: "./assets/ramen/nirvana.jpg",
-  //     rating: "4",
-  //     comment: "test",
-  //     id: 6,
-  //   };
-  //   const ramenMenuDivBefore = document.querySelectorAll("#ramen-menu img");
-  //   const ramenForm = document.getElementById("new-ramen");
-  //   const ramenFormName = document.querySelector("#new-ramen #new-name");
-  //   const ramenFormRestaurant = document.querySelector(
-  //     "#new-ramen #new-restaurant"
-  //   );
-  //   const ramenFormImage = document.querySelector("#new-ramen #new-image");
-  //   const ramenFormRating = document.querySelector("#new-ramen #new-rating");
-  //   const ramenFormComment = document.querySelector("#new-ramen #new-comment");
-  //   const submitButton = document.getElementById("submit-button");
+  it("should attach a click listener to the new element to display its details", () => {
+    const newRamen = {
+      name: "Mat",
+      restaurant: "Test",
+      image: "./assets/ramen/nirvana.jpg",
+      rating: "4",
+      comment: "test",
+      id: 6,
+    };
+    const ramenMenuDivBefore = document.querySelectorAll("#ramen-menu img");
+    const ramenForm = document.getElementById("new-ramen");
+    const ramenFormName = document.querySelector("#new-ramen #new-name");
+    const ramenFormRestaurant = document.querySelector(
+      "#new-ramen #new-restaurant"
+    );
+    const ramenFormImage = document.querySelector("#new-ramen #new-image");
+    const ramenFormRating = document.querySelector("#new-ramen #new-rating");
+    const ramenFormComment = document.querySelector("#new-ramen #new-comment");
+    const submitButton = document.getElementById("submit-button");
 
-  //   main(ramenForm);
+    main(ramenForm);
 
-  //   ramenFormName.value = newRamen.name;
-  //   ramenFormRestaurant.value = newRamen.restaurant;
-  //   ramenFormImage.value = newRamen.image;
-  //   ramenFormRating.value = newRamen.rating;
-  //   ramenFormComment.value = newRamen.comment;
+    ramenFormName.value = newRamen.name;
+    ramenFormRestaurant.value = newRamen.restaurant;
+    ramenFormImage.value = newRamen.image;
+    ramenFormRating.value = newRamen.rating;
+    ramenFormComment.value = newRamen.comment;
 
-  //   fireEvent.click(submitButton);
+    fireEvent.click(submitButton);
 
-  //   const ramenMenuDivAfter = document.querySelectorAll("#ramen-menu img");
-  //   const img = ramenMenuDivAfter[ramenMenuDivBefore.length];
-  //   img.addEventListener("click", (event) => {
-  //     handleClick(newRamen, event);
-  //   });
-  //   fireEvent.click(img);
+    const ramenMenuDivAfter = document.querySelectorAll("#ramen-menu img");
+    const img = ramenMenuDivAfter[ramenMenuDivBefore.length];
+    img.addEventListener("click", (event) => {
+      handleClick(newRamen, event);
+    });
+    fireEvent.click(img);
 
-  //   const detailImg = document.querySelector("#ramen-detail > .detail-image");
-  //   const detailName = document.querySelector("#ramen-detail > .name");
-  //   const detailRestaurant = document.querySelector(
-  //     "#ramen-detail > .restaurant"
-  //   );
-  //   const detailsRating = document.getElementById("rating-display");
-  //   const detailsComment = document.getElementById("comment-display");
+    const detailImg = document.querySelector("#ramen-detail > .detail-image");
+    const detailName = document.querySelector("#ramen-detail > .name");
+    const detailRestaurant = document.querySelector(
+      "#ramen-detail > .restaurant"
+    );
+    const detailsRating = document.getElementById("rating-display");
+    const detailsComment = document.getElementById("comment-display");
 
-  //   expect(detailName.textContent).toBe(newRamen.name);
-  //   expect(detailRestaurant.textContent).toBe(newRamen.restaurant);
-  //   expect(detailImg.src).toBe(newRamen.image);
-  //   expect(detailsRating.textContent).toBe(newRamen.rating.toString());
-  //   expect(detailsComment.textContent).toBe(newRamen.comment);
-  // });
+    expect(detailName.textContent).toBe(newRamen.name);
+    expect(detailRestaurant.textContent).toBe(newRamen.restaurant);
+    expect(detailImg.src).toBe(newRamen.image);
+    expect(detailsRating.textContent).toBe(newRamen.rating.toString());
+    expect(detailsComment.textContent).toBe(newRamen.comment);
+  });
 });
